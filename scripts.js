@@ -1,0 +1,1 @@
+alert ("Pancakes are delicious!");
