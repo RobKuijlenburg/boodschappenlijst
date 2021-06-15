@@ -30,24 +30,12 @@ for (i = 0; i < sub.length; i++) {
 }
 
 for (i = 0; i < add.length; i++) {
-    // add[i].addEventListener('click', (event) => {
-    //     const result = productQuantity;
-    //     y = 0;
-    //     value = ++y;
-    //     result.innerText = `${event.target.value}`;
-    //     console.log('+');
-    //   });
-    // add[i].addEventListener('click', function(){
-    //     let y = Number.parseInt(productQuantity.innerText);
-    //     y++;
-    //     productQuantity.innerText = y;
-    //     console.log('+');
-    // })
-    
+    const qyantityElement = productQuantity[i]
     add[i].addEventListener('click', function(){
-        let count = Number.parseInt((productQuantity.innerText) + 1);
+        const count = parseInt(qyantityElement.innerHTML) + 1;
+        qyantityElement.innerHTML = count
         console.log('+');
-        return console.log(count);
+        console.log(count);
     })
 }
 
