@@ -22,9 +22,11 @@ for (i = 0; i < productTotalCost.length; i++) {
 }
 
 for (i = 0; i < sub.length; i++) {
+    const qyantityElement = productQuantity[i]
     sub[i].addEventListener('click', function(){
-        let y = 0;
-        productQuantity.innerHTML = y--;
+        const count = parseInt(qyantityElement.innerHTML) - 1;
+        qyantityElement.innerHTML = count
+        console.log(count);
         console.log('-');
     })
 }
