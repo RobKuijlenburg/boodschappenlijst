@@ -43,10 +43,17 @@ for (i = 0; i < add.length; i++) {
     //     productQuantity.innerText = y;
     //     console.log('+');
     // })
+
+    // productQuantity is a HTMLCollection, so we need to get one element out of the collection using i
+    // Getting the element here, because in the function i = 4
+    const qyantityElement = productQuantity[i]
     add[i].addEventListener('click', function(){
-        let count = Number.parseInt((productQuantity.innerText) + 1);
+        // No need for Number before parseInt
+        const count = parseInt(qyantityElement.innerHTML) + 1;
+        qyantityElement.innerHTML = count
         console.log('+');
-        return console.log(count);
+        // No need to return
+        console.log(count);
     })
 }
 
