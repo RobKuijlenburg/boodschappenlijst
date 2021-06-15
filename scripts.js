@@ -6,13 +6,9 @@ const qChange = document.getElementsByClassName('quantityChange');
 const add = document.getElementsByClassName('add');
 const sub = document.getElementsByClassName('sub');
 
-
-
-
 // console.log(productPrice);
 // console.log(productQuantity);
 // console.log(productTotalCost);
-
 
 for (i = 0; i < sub.length; i++) {
     const qyantityElement = productQuantity[i]
@@ -48,32 +44,30 @@ for (i = 0; i < qChange.length; i++) {
         const price = parseFloat(priceElement.innerHTML);
         const quantity = parseInt(qyantityElement.innerHTML);
         const subTotal = price * quantity;
-        productTotalElement.innerHTML = subTotal;
-
+        productTotalElement.innerHTML = Math.round(subTotal * 100) / 100;
+        const newArray = [];
+   
         for (i = 0; i < productTotalCost.length; i++) {
             console.log(productTotalCost[i].innerText);
             for (i = 0; i < productTotalCost.length; i++) {
                 const a = productTotalCost[i];
                 const b = parseFloat(a.innerText);
-                const newArray = [];
                 let bpush = newArray.push(b);
                 bpush;
                 console.log(newArray);
-                let total = totalCost.innerText;
+                let total = 0;
                 console.log(b);
-                for (let i = 0; i < productTotalCost.length; i++) {
-                    total += b[i];
+                for (let i = 0; i < newArray.length; i++) {
+                    total += newArray[i];
                 }
-               console.log(total);
+                totalCost[0].innerHTML =  Math.round(total * 100) / 100;
+                console.log(total);
+               
             }
         }
 
-
+        
         console.log(productTotalElement.innerText);
         console.log('aantal producten is gewijzigd');
     })
 }
-
-
-
-
