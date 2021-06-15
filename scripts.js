@@ -24,10 +24,14 @@ for (i = 0; i < productTotalCost.length; i++) {
 for (i = 0; i < sub.length; i++) {
     const qyantityElement = productQuantity[i]
     sub[i].addEventListener('click', function(){
+       if (parseInt(qyantityElement.innerHTML) > 0) {
         const count = parseInt(qyantityElement.innerHTML) - 1;
         qyantityElement.innerHTML = count
         console.log(count);
         console.log('-');
+       } else {
+           console.log('Minimal value is 0');
+       }
     })
 }
 
