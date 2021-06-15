@@ -43,6 +43,7 @@ for (i = 0; i < add.length; i++) {
     //     productQuantity.innerText = y;
     //     console.log('+');
     // })
+    
     add[i].addEventListener('click', function(){
         let count = Number.parseInt((productQuantity.innerText) + 1);
         console.log('+');
