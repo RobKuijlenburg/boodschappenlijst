@@ -5,22 +5,14 @@ const totalCost = document.getElementsByClassName('totalCost');
 const qChange = document.getElementsByClassName('quantityChange');
 const add = document.getElementsByClassName('add');
 const sub = document.getElementsByClassName('sub');
-let num = 0;
+
+
+
+
 // console.log(productPrice);
 // console.log(productQuantity);
 // console.log(productTotalCost);
 
-for (i = 0; i < productPrice.length; i++) {
-    console.log(productPrice[i].innerText);
-}
-
-for (i = 0; i < productQuantity.length; i++) {
-    console.log(productQuantity[i].innerText);
-}
-
-for (i = 0; i < productTotalCost.length; i++) {
-    console.log(productTotalCost[i].innerText);
-}
 
 for (i = 0; i < sub.length; i++) {
     const qyantityElement = productQuantity[i]
@@ -46,6 +38,8 @@ for (i = 0; i < add.length; i++) {
     })
 }
 
+
+
 for (i = 0; i < qChange.length; i++) {
     const priceElement = productPrice[i];
     const qyantityElement = productQuantity[i];
@@ -55,7 +49,31 @@ for (i = 0; i < qChange.length; i++) {
         const quantity = parseInt(qyantityElement.innerHTML);
         const subTotal = price * quantity;
         productTotalElement.innerHTML = subTotal;
-        totalCost.innerHTML = num;
+
+        for (i = 0; i < productTotalCost.length; i++) {
+            console.log(productTotalCost[i].innerText);
+            for (i = 0; i < productTotalCost.length; i++) {
+                const a = productTotalCost[i];
+                const b = parseFloat(a.innerText);
+                const newArray = [];
+                let bpush = newArray.push(b);
+                bpush;
+                console.log(newArray);
+                let total = totalCost.innerText;
+                console.log(b);
+                for (let i = 0; i < productTotalCost.length; i++) {
+                    total += b[i];
+                }
+               console.log(total);
+            }
+        }
+
+
+        console.log(productTotalElement.innerText);
         console.log('aantal producten is gewijzigd');
     })
 }
+
+
+
+
