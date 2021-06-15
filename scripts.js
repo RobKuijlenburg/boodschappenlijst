@@ -5,7 +5,7 @@ const totalCost = document.getElementsByClassName('totalCost');
 const qChange = document.getElementsByClassName('quantityChange');
 const add = document.getElementsByClassName('add');
 const sub = document.getElementsByClassName('sub');
-
+let num = 0;
 // console.log(productPrice);
 // console.log(productQuantity);
 // console.log(productTotalCost);
@@ -50,13 +50,12 @@ for (i = 0; i < qChange.length; i++) {
     const priceElement = productPrice[i];
     const qyantityElement = productQuantity[i];
     const productTotalElement = productTotalCost[i];
-    // const next = productTotalCost[i] + 1;
     qChange[i].addEventListener('click', function () {
         const price = parseFloat(priceElement.innerHTML);
-        const quantity = parseInt(qyantityElement.innerHTML)
-        const subTotal =  price * quantity;
-        // const total = subTotal + parseInt(next);
+        const quantity = parseInt(qyantityElement.innerHTML);
+        const subTotal = price * quantity;
         productTotalElement.innerHTML = subTotal;
+        totalCost.innerHTML = num;
         console.log('aantal producten is gewijzigd');
     })
 }
