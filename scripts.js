@@ -5,7 +5,6 @@ const qChange = document.getElementsByClassName('quantityChange');
 const add = document.getElementsByClassName('add');
 const sub = document.getElementsByClassName('sub');
 
-document.querySelector
 // console.log(productPrice);
 // console.log(productQuantity);
 // console.log(productTotalCost);
@@ -31,11 +30,23 @@ for (i = 0; i < sub.length; i++) {
 }
 
 for (i = 0; i < add.length; i++) {
+    // add[i].addEventListener('click', (event) => {
+    //     const result = productQuantity;
+    //     y = 0;
+    //     value = ++y;
+    //     result.innerText = `${event.target.value}`;
+    //     console.log('+');
+    //   });
+    // add[i].addEventListener('click', function(){
+    //     let y = Number.parseInt(productQuantity.innerText);
+    //     y++;
+    //     productQuantity.innerText = y;
+    //     console.log('+');
+    // })
     add[i].addEventListener('click', function(){
-        let y = Number.parseInt(productQuantity.innerText);
-        y++;
-        productQuantity.innerText = y;
+        let count = Number.parseInt((productQuantity.innerText) + 1);
         console.log('+');
+        return console.log(count);
     })
 }
 
