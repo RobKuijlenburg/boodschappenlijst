@@ -1,3 +1,7 @@
+"use strict"
+// Using strict mode forces you to write better code
+// Then you need to define all variables
+
 const productPrice = document.getElementsByClassName('productPrice');
 const productQuantity = document.getElementsByClassName('productQuantity');
 const productTotalCost = document.getElementsByClassName('productTotalCost');
@@ -10,9 +14,11 @@ const sub = document.getElementsByClassName('sub');
 // console.log(productQuantity);
 // console.log(productTotalCost);
 
-for (i = 0; i < sub.length; i++) {
-    const qyantityElement = productQuantity[i]
+for (let i = 0; i < sub.length; i++) {
     sub[i].addEventListener('click', function () {
+        // now  that we use strict mode we can define the variable inside the event listener
+        // because let makes it block scoped
+        const qyantityElement = productQuantity[i]
         if (parseInt(qyantityElement.innerHTML) > 0) {
             const count = parseInt(qyantityElement.innerHTML) - 1;
             qyantityElement.innerHTML = count;
@@ -24,7 +30,7 @@ for (i = 0; i < sub.length; i++) {
     })
 }
 
-for (i = 0; i < add.length; i++) {
+for (let i = 0; i < add.length; i++) {
     const qyantityElement = productQuantity[i]
     add[i].addEventListener('click', function () {
         const count = parseInt(qyantityElement.innerHTML) + 1;
@@ -36,7 +42,7 @@ for (i = 0; i < add.length; i++) {
 
 
 
-for (i = 0; i < qChange.length; i++) {
+for (let i = 0; i < qChange.length; i++) {
     const priceElement = productPrice[i];
     const qyantityElement = productQuantity[i];
     const productTotalElement = productTotalCost[i];
@@ -47,14 +53,19 @@ for (i = 0; i < qChange.length; i++) {
         productTotalElement.innerHTML = Math.round(subTotal * 100) / 100;
         const newArray = [];
    
-        for (i = 0; i < productTotalCost.length; i++) {
+        // TODO :: don't use the same variable for a loop in a loop, cause what's i inside the loop here?
+        for (let i = 0; i < productTotalCost.length; i++) {
             console.log(productTotalCost[i].innerText);
-            for (i = 0; i < productTotalCost.length; i++) {
+            for (let i = 0; i < productTotalCost.length; i++) {
                 const a = productTotalCost[i];
                 const b = parseFloat(a.innerText);
+
+                // TODO :: remove bpush variable, because it's an unused variable
                 let bpush = newArray.push(b);
                 bpush;
                 console.log(newArray);
+                // TODO :: try to use the reduce method to get the total:
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
                 let total = 0;
                 console.log(b);
                 for (let i = 0; i < newArray.length; i++) {
